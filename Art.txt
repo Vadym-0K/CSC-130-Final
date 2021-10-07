@@ -1,0 +1,10 @@
+Art/f.png*f0
+Art/idle.png*idle
+Art/fr1.png*fr1
+Art/fr2.png*fr2
+Art/fr3.png*fr3
+Art/fr4.png*fr4
+Art/fr5.png*fr5
+Art/fr6.png*fr6
+Art/fr7.png*fr7
+Art/fr8.png*fr8
