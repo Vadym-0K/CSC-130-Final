@@ -12,7 +12,7 @@ public class spriteInfo {
 	public spriteInfo(Vector2D v2d, String tag){
 		// TODO: Save the constructor parameters into class fields
 		str1 = tag;
-		vSpr = v2d;//new Vector2D(v2d.getX(), v2d.getY());
+		vSpr = v2d; //new Vector2D(v2d.getX(), v2d.getY());
 	}
 
 	// Methods

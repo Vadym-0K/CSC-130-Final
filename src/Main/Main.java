@@ -16,13 +16,14 @@ public class Main
 	// Fields (Static) below...
 	public static boolean isImageDrawn = false;
 	public static Color light_green = new Color(149, 179, 136);
-	public static stopWatchX timer = new stopWatchX(5);
+	public static stopWatchX timer = new stopWatchX(60);
 	public static Vector2D vec1 = new Vector2D(0, 250);
 
 	public static Queue<Vector2D> vecs1 = new LinkedList<>();
 	public static Queue<Vector2D> vecs2 = new LinkedList<>();
 	public static Vector2D currentVec = new Vector2D(-100,-100);
-	public static int step = 2;
+	public static int step = 8;
+	public static int i = 1;
 	//CP3
 	public static ArrayList<spriteInfo> sprites = new ArrayList<>();
 	public static int currentSpriteIndex = 0;
@@ -30,26 +31,41 @@ public class Main
 
 	public static void main(String[] args)
 	{
-		//Control ctrl = new Control();				// Do NOT remove!
-		//ctrl.gameLoop();						    // Do NOT remove
+		Control ctrl = new Control();				// Do NOT remove!
+		ctrl.gameLoop();						    // Do NOT remove
 
 		 //TESTINGS
-		Vector2D vecTemp = new Vector2D(250, 250);
-		//int x = -100;
-
-		// while (vecTemp.getX() <= 1280)
-		// {
-		// 	vecs1.add(vecTemp);
-		// 	vecTemp = new Vector2D(x, 250);
-		// 	x+=step;
-		// }
-		//System.out.printf("size: "+ vecs2.size());
-
-		spriteInfo newObj = new spriteInfo(vecTemp, "star");
-		newObj.setCoords(50, 90);
-		
-		System.out.printf("  TEST1: " + newObj.toString()); //currentVec.getX()
-		System.out.printf("  TEST2: " + vecTemp.getX() + "   " + vecTemp.getY());
+//		Vector2D vecTemp = new Vector2D(0, 250);
+//		int i = 0;
+//		spriteInfo newObj;
+//		int x = -100;
+//
+//		while (vecTemp.getX() <= 1280)
+//		{
+//			newObj = new spriteInfo(vecTemp, "fr"+i);
+//			sprites.add(newObj);
+//			vecTemp = new Vector2D(x, 320);
+//			x+=step;
+//			i+=1;
+//			if(i==9) i = 1;
+//		}
+//		//vecs1.remove;
+//
+//
+//		for (currentSpriteIndex = 0; currentSpriteIndex < sprites.size(); currentSpriteIndex++)
+//		{
+//			spriteInfo tmp = sprites.get(currentSpriteIndex);
+//			currentVec = tmp.getCoords();
+//			//ctrl.addSpriteToFrontBuffer(currentVec.getX(), currentVec.getY(),tmp.getTag());
+//			
+//			System.out.printf("  TEST"+currentSpriteIndex+": " + currentVec.getX() + "  " + currentVec.getY() + "  " + tmp.getTag());
+//		}
+//		
+//		//spriteInfo tmp = sprites.get(32);
+//		 //tmp = sprites.get(47);
+//		//System.out.printf("  TEST"+currentSpriteIndex+": " + currentVec.getX() + "  " + currentVec.getY() + "  " + tmp.getTag());
+//		//System.out.printf("  TEST1: " + newObj.toString()); //currentVec.getX()
+//		//System.out.printf("  TEST2: " + vecTemp.getX() + "   " + vecTemp.getY());
 	}
 
 	/* This is your access to things BEFORE the game loop starts */
@@ -61,19 +77,18 @@ public class Main
 //CP2
 		Vector2D vecTemp = new Vector2D(0, 250);
 		int i = 1;
-		spriteInfo newObj = new spriteInfo(vecTemp, "fr"+i);
 		int x = -100;
-
+		spriteInfo newObj; //placeholder
 		while (vecTemp.getX() <= 1280)
 		{
+			newObj = new spriteInfo(vecTemp, "fr"+i);
 			sprites.add(newObj);
 			vecTemp = new Vector2D(x, 320);
-			newObj = new spriteInfo(vecTemp, "fr"+i);
 			x+=step;
 			i+=1;
 			if(i==9) i = 1;
 		}
-		vecs1.remove();
+		sprites.remove(0);
 
 	}
 
@@ -83,22 +98,21 @@ public class Main
 		// TODO: This is where you can code! (Starting code below is just to show you how it works)
 
 		//ctrl.drawString(0, 700, "x: "+ vecs1.toString(), light_green);
-//CP2
-		if(timer.isTimeUp())
-		 {
-			currentVec = vecs1.remove();
-			//ctrl.drawString(700, 700, "x: "+ currentVec.getX() + "  size_vecs2: " + vecs2.size() + "  size_vecs1: " + vecs1.size(), light_green);
-			vecs2.add(currentVec);
-
-			if(!vecs1.isEmpty())
-				ctrl.addSpriteToFrontBuffer(currentVec.getX(), currentVec.getY(), "idle");
-			else if (vecs1.size()==0 && vecs2.size() == 0) System.exit(0);
-			vecs1.add(vecs2.remove());
-		    timer.resetWatch();
-		 }
-		}
+//CP2	
+		spriteInfo tmp;
+			
+		tmp = sprites.get(currentSpriteIndex);
+		currentVec =  tmp.getCoords();
+		ctrl.addSpriteToFrontBuffer(currentVec.getX(), currentVec.getY(),tmp.getTag()); //currentVec.getX(), currentVec.getY(),tmp.getTag()
 		
+			if(timer.isTimeUp())
+			{
+				currentSpriteIndex++;
+				if (currentSpriteIndex == sprites.size()) currentSpriteIndex = 0;
+				timer.resetWatch();
+			}
 
+		}
 
 	// Additional Static methods below...(if needed)
 
