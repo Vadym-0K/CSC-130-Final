@@ -1,0 +1,5 @@
+string1*OrdStickman: 'This ordinary text is not boring'
+string2*OrdStickman: 'After reading this ordinary text'
+string3*OrdStickman: 'People get to taste the essence of life'
+string4*OrdStickman: 'And experience spiritual enlightenment'
+string5*OrdStickman: 'Here it comes . . .'
