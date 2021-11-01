@@ -1,5 +1,6 @@
 package Main;
 
+import java.util.Random;
 import java.awt.Color;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -27,6 +28,7 @@ public class Main
 	public static Vector2D currentVec = new Vector2D(-100,-100);
 	public static int step = 8;
 	public static int i = 1;
+	public static int int_random;
 //	CP3
 	public static ArrayList<spriteInfo> sprites = new ArrayList<>();
 	public static int currentSpriteIndex = 0;
@@ -38,6 +40,7 @@ public class Main
 	{
 		Control ctrl = new Control();				// Do NOT remove!
 		ctrl.gameLoop();						    // Do NOT remove
+//		System.out.printf("number: "+ int_random);
 	}
 
 	/* This is your access to things BEFORE the game loop starts */
@@ -57,14 +60,15 @@ public class Main
 			Value = st.nextToken();
 			map.put(Key, Value);
 		}
+		int_random = 1 + new Random().nextInt(5);
 	}
 
 	/* This is your access to the "game loop" (It is a "callback" method from the Control class (do NOT modify that class!))*/
 	public static void update(Control ctrl)
 		{
 		// TODO: This is where you can code! (Starting code below is just to show you how it works)
-		String OrdStickmanString1 = map.get("string1"); // Pass the first Key
-		ctrl.drawString(100, 250, OrdStickmanString1, light_green);
+		String randomString = map.get("string"+ int_random); // Pass the first Key
+		ctrl.drawString(100, 250, randomString, light_green);
 		}
 
 	// Additional Static methods below...(if needed)
