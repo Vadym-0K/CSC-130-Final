@@ -34,6 +34,8 @@ public class Main
 	public static int currentSpriteIndex = 0;
 //	CP4
 	public static HashMap<String, String> map = new HashMap<>();
+//CP5
+	public static String trigger = "";
 	// End Static fields...
 
 	public static void main(String[] args)
@@ -69,6 +71,8 @@ public class Main
 		// TODO: This is where you can code! (Starting code below is just to show you how it works)
 		String randomString = map.get("string"+ int_random); // Pass the first Key
 		ctrl.drawString(100, 250, randomString, light_green);
+		ctrl.drawString(100, 450, trigger, light_green);
+		
 		}
 
 	// Additional Static methods below...(if needed)
