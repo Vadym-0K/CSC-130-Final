@@ -28,6 +28,8 @@ public class Keyb implements KeyListener{
 	@Override
 	public void keyReleased(KeyEvent e) {
 		keys[e.getKeyCode()] = false;
+		Main.Main.resetAnimation();
+		return;	
 	}
 
 	@Override

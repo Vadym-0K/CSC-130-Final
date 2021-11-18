@@ -79,6 +79,7 @@ public class Control{
 		frontbuffer.addSprite(s);
 	}
 	
+	
 	// WARNING! DO NOT MODIFY THE CODE HERE! THIS IS HERE TO GET THE GAME LIBRARY TO WORK!
 	private void loadArtIntoBackBuffer(){
 		EZFileRead ezr = new EZFileRead("Art.txt");

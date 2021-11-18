@@ -45,6 +45,6 @@ public class Vector2D {
 	public void adjustY(int adjustment){
 		// TODO: Change the previous value of y by adding the adjustment to the previous value (Relative assignment)
 		// Backward adjustments can be made by passing a negative number as an adjustment
-		yCord = adjustment;
+		yCord += adjustment;
 	}
 }
