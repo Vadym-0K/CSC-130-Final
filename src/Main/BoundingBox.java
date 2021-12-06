@@ -18,19 +18,12 @@ public class BoundingBox {
         this(u.x, u.y, i.x, i.y);
     }
 
-
-    public boolean contains(Point e) 
-    {
-        return (e.x >= x1 && e.x <= x2 && e.y >= y1 && e.y <= y2);
-    }
-
-
     public boolean intersects(BoundingBox i) 
     {
         BoundingBox b = this;
         return (b.x2 >= i.x1 && b.y2 >= i.y1 && i.x2 >= b.x1 && i.y2 >= b.y1);
     }
-
+    
 }
 
 
