@@ -130,17 +130,17 @@ public class Main
 					vec1.adjustY(+(step));
 					stop = false;
 				}
-			if (face == 'd')
+			else if (face == 'd')
 				{
 					stop = false;
 					vec1.adjustY(-(step));
 				}
-			if (face == 'r')
+			else if (face == 'r')
 				{
 					stop = false;
 					vec1.adjustX(-(step));
 				}
-			if (face == 'l')
+			else if (face == 'l')
 				{
 					stop = false;
 					vec1.adjustX(+(step));
